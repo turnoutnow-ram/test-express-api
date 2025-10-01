@@ -1,0 +1,23 @@
+# Use official Node.js runtime
+FROM node:20-alpine
+
+# Set working directory
+WORKDIR /usr/src/app
+
+# Copy package files (if you have them)
+COPY package*.json ./
+
+# Install dependencies (express)
+RUN npm install express
+
+# Copy the application code
+COPY app.js .
+
+# Set environment variable
+ENV PORT=3000
+
+# Expose port
+EXPOSE 3000
+
+# Run the app
+CMD ["node", "app.js"]
